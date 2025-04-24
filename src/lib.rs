@@ -8,6 +8,8 @@ use core::{
 };
 
 /// Blocks on a future.
+///
+/// It panics if a future is not ready.
 pub fn block_on<T>(future: impl Future<Output = T>) -> T {
     let Poll::Ready(result) = pin!(future).poll(&mut Context::from_waker(Waker::noop())) else {
         unreachable!()
