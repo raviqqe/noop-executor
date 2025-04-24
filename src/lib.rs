@@ -15,3 +15,13 @@ pub fn block_on<T>(future: impl Future<Output = T>) -> T {
 
     result
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn resolve_future() {
+        assert_eq!(block_on(async { 42 }), 42);
+    }
+}
