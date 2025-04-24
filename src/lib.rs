@@ -19,9 +19,17 @@ pub fn block_on<T>(future: impl Future<Output = T>) -> T {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use core::future::{pending, ready};
 
     #[test]
-    fn resolve_future() {
+    fn resolve_ready_future() {
         assert_eq!(block_on(async { 42 }), 42);
+        assert_eq!(block_on(ready(42)), 42);
+    }
+
+    #[test]
+    #[should_panic]
+    fn panic_on_pending_future() {
+        assert_eq!(block_on(pending::<usize>()), 42);
     }
 }
