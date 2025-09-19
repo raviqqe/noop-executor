@@ -1,9 +1,9 @@
 [package]
 name = "noop-executor"
-description = "No-op executors for async tasks"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
-license-file = "./UNLICENSE"
+description = "No-op executors for async tasks"
 repository = "https://github.com/raviqqe/noop-executor"
+license = "Unlicense"
 
 [dependencies]

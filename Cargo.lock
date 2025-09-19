@@ -4,4 +4,4 @@ version = 4
 
 [[package]]
 name = "noop-executor"
-version = "0.1.0"
+version = "0.1.1"
